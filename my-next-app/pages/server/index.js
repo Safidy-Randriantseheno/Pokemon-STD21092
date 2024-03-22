@@ -7,7 +7,7 @@ const ServerPage = () => {
  return (
     <div>
       <h1>Page Serveur</h1>
-      <PokemonList />
+      <PokemonList initialPage={1} />
     </div>
  );
 };

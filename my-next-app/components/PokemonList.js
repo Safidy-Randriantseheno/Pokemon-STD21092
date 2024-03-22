@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const PokemonList = () => {
+const PokemonList = ({ initialPage = 1 }) => {
  const router = useRouter();
  const [pokemons, setPokemons] = useState([]);
- const [currentPage, setCurrentPage] = useState(1);
+ const [currentPage, setCurrentPage] = useState(initialPage);
  const [totalPages, setTotalPages] = useState(0);
 
  useEffect(() => {
@@ -24,7 +24,7 @@ const PokemonList = () => {
         {pokemons.map((pokemon, index) => (
           <li key={index}>
             {pokemon.name}
-            <button onClick={() => router.push(`/${router.pathname.split('/')[1]}/${pokemon.name}`)}>Détails</button>
+            <button onClick={() => router.push(`/pokemon/${pokemon.name}`)}>Détails</button>
           </li>
         ))}
       </ul>
